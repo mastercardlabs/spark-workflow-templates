@@ -40,6 +40,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Lint Project 
+        run: mvn checkstyle:check
+      - name: Generate Checkstyle Report
+        run: mvn checkstyle:checkstyle
+
       # 3. Build the project using the provided build command.
       - name: Build with Maven
         run: ${{ inputs.build-command }}
